@@ -2,6 +2,7 @@ package com.Proyecto.facturas.controller
 
 import com.Proyecto.facturas.model.invoice
 import com.Proyecto.facturas.service.invoiceservice
+import com.Proyecto.facturas.service.productservice
 import org.springframework.http.HttpStatus
 import org.springframework.http.HttpStatusCode
 import org.springframework.http.ResponseEntity
@@ -16,6 +17,14 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/invoice")
 class invoicecontroller(private val service: invoiceservice) {
+
+    @GetMapping("/highinvoices")
+    fun findclientWithHighInvoices() = service.findclientWithHighinvoices()
+    // Otros métodos...
+
+    @GetMapping("/topselling")
+    fun findTopSellingProducts() = service.findTopSellingProducts()
+    // Otros métodos...
     @GetMapping
     fun findAll() = service.findAll()
 
@@ -32,21 +41,19 @@ class invoicecontroller(private val service: invoiceservice) {
         @RestController
         @RequestMapping("/client")
         class ClientController(private val service: clientService) {
-            @GetMapping("/highinvoices")
-            fun findclientWithHighInvoices() = service.findclientWithHighinvoices()
-            // Otros métodos...
+
+        }
+        @RestController
+        @RequestMapping("/product")
+        class productController(private val service: productservice) {
+
         }
 
     }
-
     class clientService {
         fun findclientWithHighInvoices() {
-
         }
-
         fun findclientWithHighinvoices() {
-
         }
-
     }
 }

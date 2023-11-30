@@ -4,5 +4,7 @@ import com.Proyecto.facturas.model.product
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface productrepository : JpaRepository<product, Long> {
+    abstract fun findTopSellingproducts(): List<Any>
+
     companion object
 }
