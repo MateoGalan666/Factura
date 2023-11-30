@@ -9,4 +9,5 @@ interface clientrepository : JpaRepository<client, Long> {
     companion object
     @Query(nativeQuery = true)
     fun filterTotal (value:Double):List <invoice>
+    abstract fun findclientWithHighInvoice(): List<client>
 }

@@ -1,6 +1,8 @@
 package com.Proyecto.facturas.service
 
+import com.Proyecto.facturas.model.client
 import com.Proyecto.facturas.model.invoice
+import com.Proyecto.facturas.repository.clientrepository
 import com.Proyecto.facturas.repository.invoicerepository
 import org.springframework.stereotype.Service
 import org.springframework.util.MultiValueMap
@@ -18,5 +20,12 @@ class invoiceservice(private val repository: invoicerepository) {
         fun filterTotal (value: Double): List<invoice>{
             return invoicerepository.filterTotal(value)
         }
+
+        @Service
+        class clientservice(private val repository: clientrepository) {
+            fun findclientWithHighInvoice(): List<client> = repository.findclientWithHighInvoice()
+            // Otros métodos...
+        }
+
     }
 }

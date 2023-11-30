@@ -28,5 +28,25 @@ class invoicecontroller(private val service: invoiceservice) {
     @GetMapping("/filter-Total/{value}")
     fun ListfilterTotal (value: Double):ResponseEntity<*>{
         return ResponseEntity(invoiceservice.filterTotal(value), HttpStatus.OK)
+
+        @RestController
+        @RequestMapping("/client")
+        class ClientController(private val service: clientService) {
+            @GetMapping("/highinvoices")
+            fun findclientWithHighInvoices() = service.findclientWithHighinvoices()
+            // Otros métodos...
+        }
+
+    }
+
+    class clientService {
+        fun findclientWithHighInvoices() {
+
+        }
+
+        fun findclientWithHighinvoices() {
+
+        }
+
     }
 }
